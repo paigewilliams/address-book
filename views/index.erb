@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Contacts</title>
+  </head>
+  <body>
+    <div class="container">
+      <form target="contacts" action="/view" method="post">
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" class="form-control" id="first_name" name="first_name">
+        <label for="last_name">Last Name</label>
+        <input type="text" class="form-control" id="last_name" name ="last_name">
+        <div class="form-group">
+          <label for="contact_type">Contact Type</label>
+          <select class="form-control" id="contact_type" name="contact_type">
+            <option value="Personal">Personal</option>
+            <option value="Business">Business</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Contact</button>
+      </div>
+    </form>
+
+
+    </div>
+    <div class="container">
+      <iframe src="/view" width="80%" height="500px" name="contacts"></iframe>
+
+    </div>
+  </body>
+</html>
