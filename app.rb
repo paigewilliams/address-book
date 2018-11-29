@@ -5,19 +5,24 @@ require('./lib/address_book')
 require('pry')
 
 get('/')do
- erb(:index)
+  erb(:index)
 end
 
 get('/contacts') do
+  address_book = Address_Book.new()
+  @names = []
+
+  Address_Book.all.each do |contact|
+    @names.push(contact)
+  end
 
   erb(:display_contacts)
 end
 
 post('/contacts') do
-
-  @first_name = params.fetch("first_name")
-  @last_name = params.fetch("last_name")
-  @contact_type = params.fetch("contact_type").downcase
+  @first_name = params[:first_name]
+  @last_name = params[:last_name]
+  @contact_type = params[:contact_type].downcase
     if @contact_type == "business"
       erb(:business)
     else
@@ -25,3 +30,29 @@ post('/contacts') do
     end
 
 end
+
+post('/create/:contact_type') do
+  address_book = Address_Book.new()
+
+  if params[:contact_type] == "personal"
+     Address_Book.write(Personal::Contact.new({
+      name_first: params[:first_name],
+      name_last: params[:last_name]}))
+  end
+
+  # erb (:display_contacts)
+
+end
+
+ #
+ # {"first_name"=>"John",
+ # "last_name"=>"Henry",
+ # "contact_type"=>"personal",
+ # "email"=>"j@henry.com",
+ # "street"=>"123",
+ # "city"=>"Portland",
+ # "state"=>"OR",
+ # "zipcode"=>"97202"}
+
+
+# params[:first_name]

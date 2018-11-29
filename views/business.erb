@@ -1,6 +1,10 @@
 <div class="container">
-  <form action="/create_<%= @contact_type %>" method="post">
+  <form action="/create/<%= @contact_type %>" method="post">
   <div class="form-group">
+
+    <input type="text" name="first_name" value="<%= @first_name %>" hidden>
+    <input type="text" name="last_name" value="<%= @last_name %>" hidden>
+    <input type="text" name="contact_type" value="<%= @contact_type %>" hidden>
 
     <label></label>
     <input type="text" class="form-control" id="job" name ="job" placeholder="Job Title">

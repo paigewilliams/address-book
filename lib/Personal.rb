@@ -1,11 +1,11 @@
 module Personal
   class Contact
-    attr_accessor(:name_first, :name_last, :address)
+    # attr_accessor(:name_first, :name_last, :address)
 
-    def initialize(attributes)
-      @name_first = attributes[:name_first]
-      @name_last = attributes[:name_last]
-      @address = attributes[:address]
+    def initialize(first_name, last_name)
+
+      @name_first = first_name,
+      @name_last = last_name
     end
   end
 end
