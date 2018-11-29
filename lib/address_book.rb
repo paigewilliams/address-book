@@ -30,12 +30,12 @@ class Address_Book
     @name_type
   end
 
-   def create_fred()
-     @@db_contacts.push(Personal::Contact.new({name_first: 'Fred', name_last: 'Barry', address: 'Portland' }))
-   end
-
-   def create_harry()
-     @@db_contacts.push(Business::Contact.new({name_first: 'Harry', name_last: 'Potter', address: 'Portland' }))
-   end
+   # def create_fred()
+   #   @@db_contacts.push(Personal::Contact.new({name_first: 'Fred', name_last: 'Barry', address: 'Portland' }))
+   # end
+   #
+   # def create_harry()
+   #   @@db_contacts.push(Business::Contact.new({name_first: 'Harry', name_last: 'Potter', address: 'Portland' }))
+   # end
 
 end

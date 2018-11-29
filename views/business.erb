@@ -1,0 +1,41 @@
+<div class="container">
+  <form action="/create_<%= @contact_type %>" method="post">
+  <div class="form-group">
+
+    <label></label>
+    <input type="text" class="form-control" id="job" name ="job" placeholder="Job Title">
+
+
+    <label></label>
+    <input type="text" class="form-control" id="company" name ="company" placeholder="Business Name">
+
+    <label></label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Business Email">
+
+    <label></label>
+    <input type="text" class="form-control" id="street" name="street" placeholder="Business Address">
+
+    <div class="row">
+      <div class="col">
+        <label></label>
+        <input type="text" class="form-control" id="city" name ="city" placeholder="City">
+      </div>
+
+      <div class="col">
+        <label></label>
+        <input type="text" class="form-control" id="state" name ="state" placeholder="State">
+      </div>
+
+      <div class="col">
+        <label></label>
+        <input type="text" class="form-control" id="zipcode" name ="zipcode" placeholder="Zipcode">
+
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary" style="margin-top: 15px;">Create Contact</button>
+
+  </div>
+</form>
+</div>
