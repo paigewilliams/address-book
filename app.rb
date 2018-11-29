@@ -13,7 +13,7 @@ get('/contacts') do
   @names = []
 
   Address_Book.all.each do |contact|
-    @names.push(contact)
+    @names.push(contact.first_name)
   end
 
   erb(:display_contacts)
@@ -33,14 +33,22 @@ end
 
 post('/create/:contact_type') do
   address_book = Address_Book.new()
+  attributes = {
+    first_name: params[:first_name],
+    last_name: params[:last_name]
+  }
 
   if params[:contact_type] == "personal"
-     Address_Book.write(Personal::Contact.new({
-      name_first: params[:first_name],
-      name_last: params[:last_name]}))
+    address_book.make_personal(attributes)
   end
 
-  # erb (:display_contacts)
+  @names = []
+
+  Address_Book.all.each do |contact|
+    @names.push(contact.first_name)
+  end
+  # binding.pry
+  erb (:display_contacts)
 
 end
 

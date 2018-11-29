@@ -3,18 +3,13 @@ require_relative ('Personal')
 require('pry')
 
 class Address_Book
-  @@db_contacts = ["John", "Phil", "Paige"]
+  @@db_contacts = []
 
   def self.all
     @@db_contacts
   end
 
-  def initialize
-
-  end
-
-  # def self.write(contact)
-  #   @@db_contacts.push(contact)
+  # def initialize
   #
   # end
 
@@ -28,24 +23,11 @@ class Address_Book
     results
   end
 
-  def make_personal(first_name, last_name)
+  def make_personal(attributes)
     # attributes = {first_name: first_name, last_name:last_name}
 
-    @@db_contacts.push(Personal::Contact.new(first_name, last_name))
+    @@db_contacts.push(Personal::Contact.new(attributes))
   end
 
-  # def make_contact(attributes)
-  #   @name_last
-  #   @name_first
-  #   @name_type
-  # end
-
-   # def create_fred()
-   #   @@db_contacts.push(Personal::Contact.new({name_first: 'Fred', name_last: 'Barry', address: 'Portland' }))
-   # end
-   #
-   # def create_harry()
-   #   @@db_contacts.push(Business::Contact.new({name_first: 'Harry', name_last: 'Potter', address: 'Portland' }))
-   # end
 
 end
