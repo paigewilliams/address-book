@@ -1,0 +1,70 @@
+
+<style>
+  p {
+    margin-bottom: 0;
+  }
+
+</style>
+
+<div class="card">
+  <h5 class="card-header">
+    <% if @contact.contact_type == "business" %>🏢
+    <% elsif @contact.contact_type == "personal" %>🏠
+    <% end %>
+    <%= @contact.first_name.capitalize %> <%= @contact.last_name.capitalize %>
+
+    <a href="/contacts" class="float-right">🔙</a></h5>
+
+  <div class="card-body">
+
+    <% if @contact.contact_type == "business" %>
+      <h5 class="card-title">
+        <%= @contact.job.capitalize %> for <%= @contact.company.capitalize %>
+      </h5>
+      <div class="row">
+        <div class="col-md-3">Business email:</div>
+        <div class="col-md-9"><p class="card-text"><a href="mailto:<%= @contact.email %>"><%= @contact.email %></a></p></div>
+
+      </div>
+
+      <div class="row" style="margin-top: 10px;">
+        <div class="col-md-3">Business address:</div>
+        <div class="col-md-9">
+          <p class="card-text"><%= @contact.address[:street] %></p>
+          <p class="card-text">
+            <%= @contact.address[:city].capitalize %>, <%= @contact.address[:state].upcase %> <%= @contact.address[:zip] %></p>
+        </div>
+
+      </div>
+
+
+
+    <%end%>
+
+    <% if @contact.contact_type == "personal" %>
+
+    <div class="row">
+      <div class="col-md-3">Personal email:</div>
+      <div class="col-md-9"><p class="card-text"><a href="mailto:<%= @contact.email %>"><%= @contact.email %></a></p></div>
+
+    </div>
+
+    <div class="row" style="margin-top: 10px;">
+      <div class="col-md-3">Personal address:</div>
+      <div class="col-md-9">
+        <p class="card-text"><%= @contact.address[:street] %></p>
+        <p class="card-text">
+          <%= @contact.address[:city].capitalize %>, <%= @contact.address[:state].upcase %> <%= @contact.address[:zip] %></p>
+      </div>
+
+    </div>
+
+    <%end%>
+
+
+
+
+
+
+  </div>
+</div>

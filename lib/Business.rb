@@ -1,11 +1,23 @@
 module Business
   class Contact
-    attr_accessor(:name_first, :name_last, :address)
+    attr_reader(:first_name, :last_name, :contact_id, :email, :address, :job, :company, :contact_type)
 
-    def initialize(attributes)
-      @name_first = attributes[:name_first]
-      @name_last = attributes[:name_last]
-      @address = attributes[:address]
+    def initialize(attributes, id)
+      @contact_id = id
+
+      @contact_type = attributes[:contact_type]
+      @first_name = attributes[:first_name]
+      @last_name = attributes[:last_name]
+      @email = attributes[:email]
+      @job = attributes[:job]
+      @company = attributes[:company]
+
+      @address = {
+        street: attributes[:street],
+        city: attributes[:city],
+        state: attributes[:state],
+        zip: attributes[:zip]
+      }
     end
   end
 end

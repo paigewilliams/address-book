@@ -9,25 +9,26 @@ class Address_Book
     @@db_contacts
   end
 
-  # def initialize
-  #
-  # end
-
-  def self.sort(contact_type)
-    results =[]
+  def self.find(id)
     @@db_contacts.each do |contact|
-      if contact.class.to_s.include?(contact_type)
-        results.push(contact)
+      if contact.contact_id == id.to_i
+        return contact
       end
     end
-    results
   end
 
   def make_personal(attributes)
-    # attributes = {first_name: first_name, last_name:last_name}
-
-    @@db_contacts.push(Personal::Contact.new(attributes))
+    contact_id = @@db_contacts.length + 1
+    @@db_contacts.push(Personal::Contact.new(attributes, contact_id))
   end
 
+  def make_business(attributes)
+    contact_id = @@db_contacts.length + 1
+    @@db_contacts.push(Business::Contact.new(attributes, contact_id))
+  end
+
+  def read_contact(id)
+    @@db_contacts[id]
+  end
 
 end
